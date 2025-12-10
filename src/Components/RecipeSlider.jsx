@@ -1,11 +1,22 @@
-import React from 'react'
+import React from "react";
+import useFetch from "./useFetch";
+import RecipeCard from "./RecipeCard";
 
-function RecipeSlider() {
-  return (
-    <div>
-      
+const RecipeSlider = ({ title, fetchUrl }) => {
+  const { data, loading, error } = useFetch(fetchUrl);
+  console.log("my meal :", data?.meals);
+
+  const meals = data?.meals || [];
+
+ return(
+  <>
+  {meals.map((meal)=>(
+    <div key={meal.idMeal} className="px-10 flex justify-around">
+      <RecipeCard meal={meal}/>
     </div>
-  )
-}
+  ))}
+  </>
+ )
+};
 
-export default RecipeSlider
+export default RecipeSlider;

@@ -9,7 +9,7 @@ const Navbar = () => {
   const handleSearch = (e) => {
     e.preventDefault();
     console.log("searching");
-    
+    setInput("")
   }
   return (
     <>
@@ -31,7 +31,8 @@ const Navbar = () => {
             <form onSubmit={handleSearch} className="flex-1 max-w-lg mx-4 hidden sm:flex">
               <input
                 type="text"
-                onChange={(e)=>setInput(e.target.value)}
+                value={input}
+                onChange={(e) => setInput(e.target.value)}
                 placeholder="Search dishes , Food"
                 className="w-full px-5 py-2 border border-gray-700 bg-gray-800 text-gray-50 rounded-l-full
               focus:outline-none focus:ring-4 focus:ring-blue-600/50 transition placeholder-gray-500 shadow-inner 

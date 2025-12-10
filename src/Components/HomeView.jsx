@@ -1,11 +1,26 @@
-import React from 'react'
-
-function HomeView() {
+import React from "react";
+import RecipeSlider from "./RecipeSlider";
+import TrendingRecipe from "./TrendingRecipe";
+import CategorySelection from "./CategorySelection";
+import { API_URL } from "./useFetch";
+const HomeView = () => {
   return (
-    <div>
-      
-    </div>
-  )
-}
+    <>
+      <main className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+        <RecipeSlider
+          title="People Favorite Food"
+          fetchUrl={`${API_URL}search.php?f=c`}
+        />
 
-export default HomeView
+        <TrendingRecipe
+          title="Quick and Best Food"
+          fetchUrl={`${API_URL}filter.php?a=Canadian`}
+        />
+
+        <CategorySelection />
+      </main>
+    </>
+  );
+};
+
+export default HomeView;
