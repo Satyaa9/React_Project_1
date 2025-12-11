@@ -1,7 +1,12 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const RecipeCard = ({ meal }) => {
+  // console.log("my meal" , meal);
+  
   return (
+    <Link to={`/recipe/${meal.idMeal}`}>
+
     <div
       className="relative bg-gray-900 rounded-xl shadow-black/50 overflow-hidded
     group transform transition duration-500 cursor-pointer border border-gray-800
@@ -30,6 +35,7 @@ const RecipeCard = ({ meal }) => {
         </h3>
       </div>
     </div>
+    </Link>
   );
 };
 

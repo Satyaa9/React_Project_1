@@ -6,7 +6,7 @@ import { Clock, Loader } from "lucide-react";
 
 const TrendingRecipe = ({ title, fetchUrl }) => {
   const { data, loading, error } = useFetch(fetchUrl);
-  console.log("my meal :", data?.meals);
+  // console.log("my meal :", data?.meals);
 
   const meals = data?.meals || [];
 
