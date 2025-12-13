@@ -5,6 +5,7 @@ import { Loader } from "lucide-react";
 import { Link } from "react-router-dom";
 import { ChevronLeft } from "lucide-react";
 import { Utensils } from "lucide-react";
+import { BookOpen } from "lucide-react";
 
 const RecipeDetailView = () => {
   const { id } = useParams();
@@ -46,6 +47,13 @@ const RecipeDetailView = () => {
       });
     }
   }
+
+  const intructions = meal.strInstructions
+    ? meal.strInstructions
+        .split(".")
+        .map((step) => step.trim())
+        .filter((step) => step.length > 0)
+    : [];
 
   return (
     <main className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
@@ -109,23 +117,49 @@ const RecipeDetailView = () => {
               ))}
             </ul>
 
-              <div className="mt-8 pd-4 border-t border-gray-700">
-                <div className="text-lg text-gray-400 space-x-3 flex flex-wrap gap-y-2">
-                <span className="bg-blue-600 text-center mt-6 ml-5 text-white px-4 py-1.5
-                rounded-full font-semibold text-sm shadow-md">
+            <div className="mt-8 pd-4 border-t border-gray-700">
+              <div className="text-lg text-gray-400 space-x-3 flex flex-wrap gap-y-2">
+                <span
+                  className="bg-blue-600 text-center mt-6 ml-5 text-white px-4 py-1.5
+                rounded-full font-semibold text-sm shadow-md"
+                >
                   {meal.strCategory}
                 </span>
 
-                <span className="bg-green-600 text-center mt-6 ml-5 text-white px-4 py-1.5
-                rounded-full font-semibold text-sm shadow-md">
+                <span
+                  className="bg-green-600 text-center mt-6 ml-5 text-white px-4 py-1.5
+                rounded-full font-semibold text-sm shadow-md"
+                >
                   {meal.strArea}
                 </span>
-
-                </div>
               </div>
+            </div>
           </div>
         </div>
+    
+
+      <div className="mt-14 pt-8 border-t border-gray-800 ">
+        <h2 className="text-3xl font-bold text-gray-100 mb-8 flex items-center">
+          {""}
+          <BookOpen className="w-7 h-7 mr-3 text-blue-500 " /> Steps
+        </h2>
+
+        <ol className="space-y-6 list-none text-gray-300">
+          {intructions.map((step, index) => (
+            <li
+              key={index}
+              className="text-lg leading-relaxed bg-gray-800 p-5 rounded-xl border-1-6 cursor-pointer
+                border-blue-500 shadow-lg shadow-black-30 transition duration-300 hover:bg-gray-700"
+            >
+              <span className="font-extrabold text-yellow-400 mr-3 text-xl">
+                {index + 1}
+              </span>
+              {step.trim()}
+            </li>
+          ))}
+        </ol>
       </div>
+        </div>
     </main>
   );
 };

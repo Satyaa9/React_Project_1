@@ -29,6 +29,8 @@ const RecipeSlider = ({ title, fetchUrl }) => {
       </div>
     );
 
+   
+
   return (
     <>
       <section className="mt-2 mx-auto">
