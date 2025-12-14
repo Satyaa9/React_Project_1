@@ -2,6 +2,7 @@ import React from "react";
 import { ChevronLeft } from "lucide-react";
 import { Link } from "react-router-dom";
 import RecipeCard from "./RecipeCard";
+import { Loader } from "lucide-react";
 
 const SearchView = ({ meals, loading }) => {
   return (
@@ -23,6 +24,11 @@ const SearchView = ({ meals, loading }) => {
           </div>
         )}
 
+        {!loading && meals.length > 0 &&(
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-12">
+            {meals.map((meal,index)=><RecipeCard key={index} meal={meal}/>)}
+          </div>
+        )}
         
 
       </main>

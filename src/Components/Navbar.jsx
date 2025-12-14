@@ -31,7 +31,7 @@ const Navbar = ({ handleSearch }) => {
             transition duration-300 tracking-widest"
             >
               <Zap className="w-7 h-7 mr-2 text-yellow-400 fill-yellow-400/20" />
-              <span className="text-blue-400">Pro</span>Chef
+              <span className="text-blue-400">Codex</span>Chef
             </Link>
 
             <form
