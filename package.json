@@ -11,13 +11,16 @@
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.1.17",
+    "form": "^0.2.5",
+    "formik": "^2.4.9",
     "lucide-react": "^0.556.0",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
     "react-router-dom": "^7.10.1",
     "react-slick": "^0.31.0",
     "slick-carousel": "^1.8.1",
-    "tailwindcss": "^4.1.17"
+    "tailwindcss": "^4.1.17",
+    "yup": "^1.7.1"
   },
   "devDependencies": {
     "@eslint/js": "^9.39.1",
